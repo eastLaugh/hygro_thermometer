@@ -48,11 +48,17 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    Core/Src/font.c
+    Core/Src/oled.c
+    Core/Src/aht20.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
+    Core/Inc/font.h
+    Core/Inc/oled.h
+    Core/Inc/aht20.h
 )
 
 # Add project symbols (macros)
@@ -66,3 +72,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 
     # Add user defined libraries
 )
+
+#开启浮点类型-u _printf_float对单片机的支持
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -u _printf_float")
